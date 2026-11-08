@@ -1,9 +1,14 @@
+import java.util.Scanner;
+
 public class NumberFormatter {
     public static void main(String[] args) {
-        // Исходные данные в виде строковых констант
-        String input = "12345678";
-        String separator = ",";
-
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите число: ");
+        String input = scanner.nextLine();
+        
+        String separator = ","; // Разделитель
+        
         // Регулярное выражение для вставки разделителей
         String regex = "(?<=\\d)(?=(\\d{3})+(?!\\d))";
         
@@ -11,5 +16,7 @@ public class NumberFormatter {
         String result = input.replaceAll(regex, separator);
         
         System.out.println(result);
+        
+        scanner.close();
     }
 }
